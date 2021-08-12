@@ -1,0 +1,49 @@
+<template>
+    <lightning-card title={carName} icon-name="utility:setup_assitant_guide">
+        <div slot="actions">
+            <lightning-button label="Full Detaails" onclick={fullDetails}></lightning-button>
+        </div>
+        <lightning-layout multiple-rows>
+            <lightning-layout-item size="12" small-device-size="6" medium-device-size="6" large-device-size="6">
+                <div class="slds-m-horizontal_small">
+                    <div class="carproperty">
+                        <span class="label">Owner :
+                            <lightning-formatted-text value={ownerName}></lightning-formatted-text>
+
+                        </span>
+                    </div>
+                   
+                    <div class="carproperty">
+                        <span class="label">Type :
+                            <lightning-formatted-text value={type}></lightning-formatted-text>
+
+                        </span>
+                    </div>
+                    <div class="carproperty">
+                        <span class="label">Bulid Year :
+                            <lightning-formatted-text value={buildYear}></lightning-formatted-text>
+
+                        </span>
+                    </div>
+                    <div class="carproperty">
+                        <span class="label">Rent Per Day :
+                            <lightning-formatted-text value={perDayRent}></lightning-formatted-text>
+
+                        </span>
+                    </div>
+                    <div class="carproperty">
+                        <span class="label">Mileage :
+                            <lightning-formatted-text value={mileage}></lightning-formatted-text>
+
+                        </span>
+                    </div>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" small-device-size="6" medium-device-size="6" large-device-size="6">
+                <img src={pictureUrl} class="Car slds-align_absolute-center" alt="Car Picture"/>
+            </lightning-layout-item>
+
+        </lightning-layout>
+    </lightning-card>
+    
+</template>
