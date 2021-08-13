@@ -5,15 +5,26 @@ import { NavigationMixin } from 'lightning/navigation';
 
 export default class CarExperiences extends NavigationMixin(LightningElement) {
 
-    @api carId;
-    @track carExperiences;
+    privateCarId;
+    @track carExperiences = [];
 
     connectedCallback(){
         this.getCarExperiences();
     }
 
+    @api
+    get carId(){
+        return this.privateCarId;
+    }
+
+    set carId(value){
+        this.privateCarId = value;
+        this.getCarExperiences();
+    }
+
+    @api
     getCarExperiences(){
-        getExperiences({carId : this.carId}).then( (experiences) =>{
+        getExperiences({carId : this.privateCarId}).then( (experiences) =>{
             this.carExperiences = experiences;
         }).catch((error) =>{
             this.showToast('ERROR', error.body.message, 'error');
@@ -21,7 +32,7 @@ export default class CarExperiences extends NavigationMixin(LightningElement) {
     }
 
     userClickHandler(event){
-        const userId = event.target.getAttribute('data-userid');
+        const userId = event.target.getAttribute('data--userid');
         this[NavigationMixin.Navigate]({
             type: "standard__recordPage",
             attributes: {
@@ -33,16 +44,16 @@ export default class CarExperiences extends NavigationMixin(LightningElement) {
     }
     
     showToast(title, message, variant) {
-        const evt1 = new ShowToastEvent({
+        const evt = new ShowToastEvent({
             title: title,
             message: message,
             variant: variant,
         });
-        this.dispatchEvent(evt1);
+        this.dispatchEvent(evt);
     }
 
     get hasExperiences(){
-        if(this.carExperiences){
+        if(this.carExperiences.length > 0){
             return true;
         }
         return false;
