@@ -42,6 +42,7 @@ export default class CarDetail extends NavigationMixin(LightningElement) {
     
       get buildYear(){
         try{
+          console.log("Buildyear :"+this.car.data.fields.Build_Year__c.value);
           return this.car.data.fields.Build_Year__c.value;
         } catch(error){
           return 'NA';
@@ -50,6 +51,7 @@ export default class CarDetail extends NavigationMixin(LightningElement) {
     
       get perDayRent(){
         try{
+          console.log("perDayRent :"+this.car.data.fields.Per_Day_Rent__c.value);
           return this.car.data.fields.Per_Day_Rent__c.value;
         } catch(error){
           return 'NA';
@@ -58,6 +60,7 @@ export default class CarDetail extends NavigationMixin(LightningElement) {
     
       get mileage(){
         try{
+          console.log("Mileage :"+this.car.data.fields.Mileage__c.value);
           return this.car.data.fields.Mileage__c.value;
         } catch(error){
           return 'NA';
@@ -66,6 +69,7 @@ export default class CarDetail extends NavigationMixin(LightningElement) {
     
       get pictureUrl(){
         try{
+          
           return this.car.data.fields.Picture__c.value;
         } catch(error){
           return 'NA';
