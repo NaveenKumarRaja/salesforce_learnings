@@ -32,10 +32,10 @@ export default class CarSearchResult extends LightningElement {
         this.selectedCarId = carId;
     }
 
-  /* get carsFound(){
+   get carsFound(){
         if(this.cars){
-            return true;s
+            return true;
         }
         return false;
-    }*/
+    }
 }
